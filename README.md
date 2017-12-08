@@ -7,8 +7,8 @@ A better way to compare the version level.
 Here's a simple example for comparing two versions.
 
 ```swift
-let v1 = Version("2.3.4")
-let v2 = Version("10.2.4")
+let v1 = "2.3.4".version
+let v2 = "10.2.4".version
 
 if v2 > v1 {
     // Do something in a high version
@@ -41,7 +41,7 @@ It's not good for us. We now have a better way to do that 😀.
 
 ```swift
 // New way.
-if UIDevice.current.systemVersion >= "11.0.0".version {
+if UIDevice.current.systemVersion.version >= "11.0.0".version {
     // Works on iOS 11 and higher system.
 } else {
     // Works on iOS 10 and older system.
