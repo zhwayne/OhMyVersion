@@ -8,15 +8,12 @@
 
 import Foundation
 
-// MARK: - Version support for `String`
-public extension String {
-    
-    /// Get a `Version` instance from a string.
-    var version: Version {
-        return Version(self)
-    }
-}
+/// A custom operator. Press the key [Operation + 6] to use it.
+prefix operator §
 
+public prefix func § (right: String) -> Version {
+    return Version(right)
+}
 
 public struct Version {
     
@@ -44,16 +41,16 @@ public struct Version {
     /// It is obtained by traversing the version string returns the **first
     /// character which is not a number**. For example:
     ///
-    ///     let version = Version("1.2.3")
+    ///     let version = §"1.2.3"
     ///     // separator is '.'
     ///
-    ///     let version = Version("1-2-3")
+    ///     let version = §"1-2-3"
     ///     // separator is '-'
     ///
     /// Note: You should not use multiple types of separators in one version
     /// number string. For example:
     ///
-    ///     let version = Version("1.2-3")
+    ///     let version = §"1.2-3"
     ///     // separator is '.'
     ///     // It works well, but don't do that. You may get a wrong result
     ///     // when comparing two versions.
@@ -72,7 +69,7 @@ public struct Version {
     /// read-only. You can use it to get a version of the major version number,
     /// minor version and revision number, etc. Fot example:
     ///
-    ///     let version = Version("1.2.34")
+    ///     let version = §"1.2.34"
     ///     print(version.numbers)
     ///     // Prints "[1, 2, 34]"
     ///
@@ -107,13 +104,13 @@ public extension Version {
     /// Well, if you have traversed an array still did not get a result, you must
     /// compare the count of two arrays. The greater the count, the higher the version.
     ///
-    ///     let v1 = Version("1.2.3")
-    ///     let v2 = Version("1.2.4")
+    ///     let v1 = §"1.2.3"
+    ///     let v2 = §"1.2.4"
     ///     print(v1 < v2)
     ///     // Prints "true".
     ///
-    ///     let v1 = Version("1.2.3")
-    ///     let v2 = Version("1.2.3.1")
+    ///     let v1 = §"1.2.3"
+    ///     let v2 = §"1.2.3.1"
     ///     print(v1 < v2)
     ///     // Prints "true".
     ///
@@ -141,13 +138,13 @@ public extension Version {
     /// compare the count of two arrays. The greater the count, the higher the version.
     /// For example:
     ///
-    ///     let v1 = Version("1.2.3")
-    ///     let v2 = Version("1.2.4")
+    ///     let v1 = §"1.2.3"
+    ///     let v2 = §"1.2.4"
     ///     print(v1 == v2)
     ///     // Prints "false".
     ///
-    ///     let v1 = Version("1.2.3")
-    ///     let v2 = Version("1.2.3")
+    ///     let v1 = §"1.2.3"
+    ///     let v2 = §"1.2.3"
     ///     print(v1 == v2)
     ///     // Prints "true".
     ///
@@ -175,18 +172,18 @@ public extension Version {
     /// compare the count of two arrays. The greater the count, the higher the version.
     /// For example:
     ///
-    ///     let v1 = Version("1.2.3")
-    ///     let v2 = Version("1.2.4")
+    ///     let v1 = §"1.2.3"
+    ///     let v2 = §"1.2.4"
     ///     print(v1 > v2)
     ///     // Prints "false".
     ///
-    ///     let v1 = Version("1.2.4")
-    ///     let v2 = Version("1.2.3")
+    ///     let v1 = §"1.2.4"
+    ///     let v2 = §"1.2.3"
     ///     print(v1 > v2)
     ///     // Prints "true".
     ///
-    ///     let v1 = Version("1.2.3.1")
-    ///     let v2 = Version("1.2.3")
+    ///     let v1 = §"1.2.3.1"
+    ///     let v2 = §"1.2.3"
     ///     print(v1 > v2)
     ///     // Prints "true".
     ///
@@ -214,13 +211,13 @@ public extension Version {
     /// compare the count of two arrays. The greater the count, the higher the version.
     /// For example:
     ///
-    ///     let v1 = Version("1.2.3")
-    ///     let v2 = Version("1.2.4")
+    ///     let v1 = §"1.2.3"
+    ///     let v2 = §"1.2.4"
     ///     print(v1 >= v2)
     ///     // Prints "false".
     ///
-    ///     let v1 = Version("1.2.3.1")
-    ///     let v2 = Version("1.2.3")
+    ///     let v1 = §"1.2.3.1"
+    ///     let v2 = §"1.2.3"
     ///     print(v1 >= v2)
     ///     // Prints "true".
     ///
@@ -248,13 +245,13 @@ public extension Version {
     /// compare the count of two arrays. The greater the count, the higher the version.
     /// For example:
     ///
-    ///     let v1 = Version("1.2.3")
-    ///     let v2 = Version("1.2.4")
+    ///     let v1 = §"1.2.3"
+    ///     let v2 = §"1.2.4"
     ///     print(v1 <= v2)
     ///     // Prints "true".
     ///
-    ///     let v1 = Version("1.2.3.1")
-    ///     let v2 = Version("1.2.3")
+    ///     let v1 = §"1.2.3.1"
+    ///     let v2 = §"1.2.3"
     ///     print(v1 <= v2)
     ///     // Prints "false".
     ///
@@ -282,13 +279,13 @@ public extension Version {
     /// compare the count of two arrays. The greater the count, the higher the version.
     /// For example:
     ///
-    ///     let v1 = Version("1.2.3")
-    ///     let v2 = Version("1.2.4")
+    ///     let v1 = §"1.2.3"
+    ///     let v2 = §"1.2.4"
     ///     print(v1 != v2)
     ///     // Prints "true".
     ///
-    ///     let v1 = Version("1.2.3")
-    ///     let v2 = Version("1.2.3")
+    ///     let v1 = §"1.2.3"
+    ///     let v2 = §"1.2.3"
     ///     print(v1 != v2)
     ///     // Prints "false".
     ///

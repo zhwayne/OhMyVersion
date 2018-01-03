@@ -25,17 +25,17 @@ class OhMyVersionTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        assert("1".version < "1.2.4".version)
-        assert("2".version > "1.2.4".version)
-        assert("1.2.3".version < "1.2.4".version)
-        assert("1.2.3".version != "1.2.4".version)
-        assert("1.2.3".version <= "1.2.3".version)
-        assert("2.2.3".version > "1.2.4".version)
-        assert("2.2.3.1".version > "2.2.3".version)
-        assert("2.2.3".version < "2.2.3.1".version)
-        assert("2.2.3".version >= "1.2.4".version)
-        assert("2.2.3".version == "2.2.3".version)
-        assert("10.2.3".version > "2.2.3".version)
+        assert(§"1" < §"1.2.4")
+        assert(§"2" > §"1.2.4")
+        assert(§"1.2.3" < §"1.2.4")
+        assert(§"1.2.3" != §"1.2.4")
+        assert(§"1.2.3" <= §"1.2.3")
+        assert(§"2.2.3" > §"1.2.4")
+        assert(§"2.2.3.1" > §"2.2.3")
+        assert(§"2.2.3" < §"2.2.3.1")
+        assert(§"2.2.3" >= §"1.2.4")
+        assert(§"2.2.3" == §"2.2.3")
+        assert(§"10.2.3" > §"2.2.3")
 
     }
     

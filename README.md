@@ -6,16 +6,18 @@ A better way to compare the version level.
 # Usage
 Here's a simple example for comparing two versions.
 
+
 ```swift
-let v1 = "2.3.4".version
-let v2 = "10.2.4".version
+/* Tips: Press the key [option + 6] to type §. */
+
+let v1 = §"2.3.4"
+let v2 = §"10.2.4"
 
 if v2 > v1 {
     // Do something in a high version
 } else {
     // Do other things
 }
-
 ```
 
 Enjoy it!
