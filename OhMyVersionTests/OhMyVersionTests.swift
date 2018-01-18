@@ -25,7 +25,9 @@ class OhMyVersionTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        assert(§"1" < §"1.2.4")
+        let v: Version = "1.2.3"
+        
+        assert(v < §"1.2.4")
         assert(§"2" > §"1.2.4")
         assert(§"1.2.3" < §"1.2.4")
         assert(§"1.2.3" != §"1.2.4")

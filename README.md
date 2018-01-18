@@ -13,7 +13,7 @@ Here's a simple example for comparing two versions.
 /* Tips: Press the key [option + 6] to type §. */
 
 let v1 = §"2.3.4"
-let v2 = §"10.2.4"
+let v2: Version = "10.2.4"
 
 if v2 > v1 {
     // Do something in a high version
@@ -22,12 +22,13 @@ if v2 > v1 {
 }
 ```
 
+
 Enjoy it!
 
 # Required
-Swift 4
-Xcode 9+
-iOS 8+
+* Swift 4
+* Xcode 9+
+* iOS 8+
 
 
 # Installation

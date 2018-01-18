@@ -88,6 +88,26 @@ public struct Version {
 }
 
 
+extension Version: ExpressibleByStringLiteral {
+    
+    public typealias StringLiteralType = String
+    public typealias UnicodeScalarLiteralType = String
+    public typealias ExtendedGraphemeClusterLiteralType = String
+
+    public init(stringLiteral value: String) {
+        self.init(value)
+    }
+
+    public init(unicodeScalarLiteral value: String) {
+        self.init(value)
+    }
+
+    public init(extendedGraphemeClusterLiteral value: String) {
+        self.init(value)
+    }
+}
+
+
 // MARK: - Compare
 public extension Version {
     
