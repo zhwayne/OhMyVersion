@@ -1,8 +1,8 @@
 
 Pod::Spec.new do |s|
 
-    s.name                 = "OhMyVersion"
-  s.version                = "0.0.2"
+  s.name                   = "OhMyVersion"
+  s.version                = "0.0.3"
   s.summary                = "A better way to compare the version level."
   s.description            = "This library provides a better way to compare the version level."
   s.homepage               = "https://github.com/zhwayne/OhMyVersion"
