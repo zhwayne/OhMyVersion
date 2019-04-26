@@ -2,7 +2,7 @@
 A better way to compare the version level.
 
 ![](https://img.shields.io/badge/License-MIT-0099ff.svg) 
-![](https://img.shields.io/badge/Language-Swift4-ff69b4.svg) 
+![](https://img.shields.io/badge/Language-Swift5-ff69b4.svg) 
 ![](https://img.shields.io/badge/version-0.0.2-5cde45.svg)
 
 # Usage
@@ -26,7 +26,7 @@ if v2 > v1 {
 Enjoy it!
 
 # Required
-* Swift 4
+* Swift 5
 * Xcode 9+
 * iOS 8+
 
@@ -34,8 +34,6 @@ Enjoy it!
 # Installation
 ## Cocoapods
 ```
-platform :ios, '8.0'
-use_frameworks!
 pod 'OhMyVersion'
 ```
 
