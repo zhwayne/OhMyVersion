@@ -139,7 +139,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is lower than the right. Otherwise,
     ///   return false.
-    public static func < (left: Version, right: Version) -> Bool {
+    static func < (left: Version, right: Version) -> Bool {
         
         return left.numbers.lexicographicallyPrecedes(right.numbers)
     }
@@ -173,7 +173,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is equal to the right. Otherwise,
     ///   return false.
-    public static func == (left: Version, right: Version) -> Bool {
+    static func == (left: Version, right: Version) -> Bool {
         
         return left.numbers.elementsEqual(right.numbers)
     }
@@ -212,7 +212,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is higher than the right. Otherwise,
     ///   return false.
-    public static func > (left: Version, right: Version) -> Bool {
+    static func > (left: Version, right: Version) -> Bool {
         
         return !(left == right) && !(left < right)
     }
@@ -246,7 +246,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is higher than or equal to the right.
     ///   Otherwise, return false.
-    public static func >= (left: Version, right: Version) -> Bool {
+    static func >= (left: Version, right: Version) -> Bool {
         
         return left > right || left == right
     }
@@ -280,7 +280,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is lower than or equal to the right.
     ///   Otherwise, return false.
-    public static func <= (left: Version, right: Version) -> Bool {
+    static func <= (left: Version, right: Version) -> Bool {
         
         return left < right || left == right
     }
@@ -314,7 +314,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is not equal to the right. Otherwise,
     ///   return false.
-    public static func != (left: Version, right: Version) -> Bool {
+    static func != (left: Version, right: Version) -> Bool {
         
         return !(left == right)
     }
