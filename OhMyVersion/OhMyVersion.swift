@@ -22,14 +22,14 @@ public struct Version {
     private static let defaultSeparator: Character = "."
     
     /// Used to indicate a version number.
-    public fileprivate(set) var string: String
+    public private(set) var string: String
     
     /// Initialize a Version object from a string. For example:
     ///
     ///     let version = Version("1.2.3")
     ///
     /// - Parameter string: A string representing a version number
-    init(_ string: String) {
+    public init(_ string: String) {
         guard string.isEmpty == false else {
             fatalError("The string value must not be empty string.")
         }
@@ -54,7 +54,7 @@ public struct Version {
     ///     // separator is '.'
     ///     // It works well, but don't do that. You may get a wrong result
     ///     // when comparing two versions.
-    fileprivate var separator: Character {
+    private var separator: Character {
         for character in string {
             if Int(String(character)) != nil {
                 continue
@@ -109,7 +109,7 @@ extension Version: ExpressibleByStringLiteral {
 
 
 // MARK: - Compare
-public extension Version {
+extension Version : Comparable {
     
     /// Compares the levels of both two versions.
     ///
@@ -139,8 +139,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is lower than the right. Otherwise,
     ///   return false.
-    static func < (left: Version, right: Version) -> Bool {
-        
+    public static func < (left: Version, right: Version) -> Bool {
         return left.numbers.lexicographicallyPrecedes(right.numbers)
     }
     
@@ -173,8 +172,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is equal to the right. Otherwise,
     ///   return false.
-    static func == (left: Version, right: Version) -> Bool {
-        
+    public static func == (left: Version, right: Version) -> Bool {
         return left.numbers.elementsEqual(right.numbers)
     }
     
@@ -212,8 +210,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is higher than the right. Otherwise,
     ///   return false.
-    static func > (left: Version, right: Version) -> Bool {
-        
+    public static func > (left: Version, right: Version) -> Bool {
         return !(left == right) && !(left < right)
     }
     
@@ -246,8 +243,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is higher than or equal to the right.
     ///   Otherwise, return false.
-    static func >= (left: Version, right: Version) -> Bool {
-        
+    public static func >= (left: Version, right: Version) -> Bool {
         return left > right || left == right
     }
     
@@ -280,8 +276,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is lower than or equal to the right.
     ///   Otherwise, return false.
-    static func <= (left: Version, right: Version) -> Bool {
-        
+    public static func <= (left: Version, right: Version) -> Bool {
         return left < right || left == right
     }
     
@@ -314,8 +309,7 @@ public extension Version {
     ///   - right: Other version
     /// - Returns: Return true if the left version is not equal to the right. Otherwise,
     ///   return false.
-    static func != (left: Version, right: Version) -> Bool {
-        
+    public static func != (left: Version, right: Version) -> Bool {
         return !(left == right)
     }
 }
